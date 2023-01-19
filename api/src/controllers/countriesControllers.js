@@ -1,5 +1,4 @@
-const { Sequelize } = require("sequelize");
-const { Country } = require("../db");
+const { Country, Activity } = require("../db");
 const { extractData } = require("./funciones");
 const { Op } = require("sequelize");
 
@@ -28,6 +27,7 @@ const countryByName = async (name) => {
     where: {
       name: { [Op.iLike]: `%${name}%` },
     },
+    attributes: ["name", "flags"],
   });
   if (!country.length) {
     throw Error("No Matches Found");
@@ -37,7 +37,15 @@ const countryByName = async (name) => {
 
 // [ ] Actividades turísticas con toda su información asociada
 const countryById = async (id) => {
-  const country = await Country.findByPk(id);
+  const country = await Country.findOne({
+    where: { id },
+    include: {
+      model: Activity,
+      through: {
+        attributes: [],
+      },
+    },
+  });
 
   if (!country) throw Error(`The ID:${id} does not belong to any country`);
 
