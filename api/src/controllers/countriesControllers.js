@@ -13,7 +13,7 @@ const getListCountries = async () => {
     }
 
     listCountries = await Country.findAll({
-      attributes: ["name", "flags"],
+      attributes: ["name", "flags", "continents"],
     });
 
     return listCountries;
@@ -27,7 +27,7 @@ const countryByName = async (name) => {
     where: {
       name: { [Op.iLike]: `%${name}%` },
     },
-    attributes: ["name", "flags"],
+    attributes: ["name", "flags", "continents"],
   });
   if (!country.length) {
     throw Error("No Matches Found");

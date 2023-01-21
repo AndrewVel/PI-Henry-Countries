@@ -36,3 +36,14 @@
     transform: rotate(360deg);
   }
 }
+
+body {
+  background: #0f0c29; /* si no soporta o falla el nevegador */
+  /* Chrome y Safari */
+  background: linear-gradient(
+    to right,
+    #0f0c29,
+    #302b63,
+    #0f0c29
+  ); /*los demas*/
+}

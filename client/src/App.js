@@ -1,9 +1,14 @@
-import './App.css';
+import "./App.css";
+import { Route } from "react-router-dom";
+//Importar componentes
+import InitialPage from "./components/InitialPage/InitialPage";
+import Home from "./components/Home/Home";
 
 function App() {
   return (
     <div className="App">
-      <h1>Henry Countries</h1>
+      <Route exact path="/" component={InitialPage} />
+      <Route path="/home" component={Home} />
     </div>
   );
 }
