@@ -23,4 +23,13 @@ const createActivity = async (
   }
 };
 
-module.exports = { createActivity };
+const getListActivities = async () => {
+  try {
+    let listActivities = await Activity.findAll();
+    return listActivities;
+  } catch (error) {
+    return error;
+  }
+};
+
+module.exports = { createActivity, getListActivities };

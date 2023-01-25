@@ -1,0 +1,43 @@
+.barraFiltros {
+  background-color: rgba(0, 0, 0, 0.651);
+  display: flex;
+  margin-top: 1%;
+  justify-content: center;
+  border-radius: 50px;
+}
+
+.select {
+  margin-top: 12.5px;
+  background-color: #0f0c29;
+  color: white;
+  padding: 5px 10px 5px 10px;
+  width: 150px;
+  font-size: 15px;
+  outline: none;
+  border-radius: 6px;
+}
+
+.select:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #7c5fe4;
+  border: none;
+}
+
+.nameFilter {
+  font-family: Arial, Helvetica, sans-serif;
+  color: aliceblue;
+  font-size: 15px;
+  letter-spacing: 1px;
+  margin-top: 20px;
+  margin-left: 3%;
+  margin-right: 1%;
+}
+
+.filter {
+  font-family: Arial, Helvetica, sans-serif;
+  color: aliceblue;
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-left: 3%;
+  margin-right: 1%;
+}

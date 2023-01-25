@@ -1,6 +1,9 @@
 const { Router } = require("express");
 
-const { createActivity } = require("../controllers/activitiesControllers");
+const {
+  createActivity,
+  getListActivities,
+} = require("../controllers/activitiesControllers");
 
 const activitiesRouter = Router();
 
@@ -15,6 +18,15 @@ activitiesRouter.post("/", async (req, res) => {
       countries
     );
     res.status(200).json(activity);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+activitiesRouter.get("/", async (req, res) => {
+  try {
+    const listActivities = await getListActivities();
+    res.status(200).json(listActivities);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

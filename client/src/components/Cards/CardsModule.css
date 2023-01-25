@@ -6,3 +6,10 @@
   margin-right: 3%;
   margin-top: 5%;
 }
+
+
+.countryFail{
+  color: red;
+  text-shadow: 0 0 80px red,0 0 30px FireBrick,0 0 6px rgb(75, 2, 2);
+}
+

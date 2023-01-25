@@ -1,12 +1,11 @@
 .barra {
-  background-color: #ffffff;
-  border-top: 0ch;
-  border-left: 0ch;
-  border-right: 0ch;
-  border-bottom: 0ch;
-  padding: 1em;
-  width: 70%;
-  box-shadow: 0px 0px 20px #034ff4;
-  margin-right: 1em;
-  border-radius: 5em;
+  background: url(https://cdn-icons-png.flaticon.com/512/2851/2851067.png) no-repeat 0px 5px;
+  background-size: 30px;
+  width: 500px;
+  border: transparent;
+  border-bottom: solid 1px white;
+  padding: 10px 10px 10px 40px;
+  outline: none;
+  color: white;
+  font-size: large;
 }

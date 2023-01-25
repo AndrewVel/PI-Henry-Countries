@@ -13,19 +13,20 @@ module.exports = (sequelize) => {
       name: {
         type: DataTypes.STRING,
         allowNull: false,
-        //unique: true,
+        unique: "activity",
       },
       difficulty: {
         type: DataTypes.ENUM("1", "2", "3", "4", "5"),
         allowNull: false,
       },
       duration: {
-        type: DataTypes.TIME,
+        type: DataTypes.STRING,
         allowNull: false,
       },
       season: {
         type: DataTypes.ENUM("Verano", "Otoño", "Invierno", "Primavera"),
         allowNull: false,
+        unique: "activity",
       },
     },
     { timestamps: false }

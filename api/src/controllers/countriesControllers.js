@@ -1,6 +1,7 @@
 const { Country, Activity } = require("../db");
 const { extractData } = require("./funciones");
 const { Op } = require("sequelize");
+const { population } = require("../../../client/src/components/Filter/Order");
 
 const getListCountries = async () => {
   try {
@@ -13,7 +14,14 @@ const getListCountries = async () => {
     }
 
     listCountries = await Country.findAll({
-      attributes: ["name", "flags", "continents"],
+      attributes: ["name", "flags", "continents", "id", "population"],
+      include: [
+        {
+          model: Activity,
+          attributes: ["name"],
+          through: { attributes: [] },
+        },
+      ],
     });
 
     return listCountries;
@@ -27,7 +35,7 @@ const countryByName = async (name) => {
     where: {
       name: { [Op.iLike]: `%${name}%` },
     },
-    attributes: ["name", "flags", "continents"],
+    attributes: ["name", "flags", "continents", "id", "population"],
   });
   if (!country.length) {
     throw Error("No Matches Found");
