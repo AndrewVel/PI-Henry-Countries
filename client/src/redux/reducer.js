@@ -6,12 +6,15 @@ import {
   ORDER_POPULATION,
   GET_ACTIVITIES,
   GET_COUNTRIES_BY_ACTIVITIES,
+  GET_COUNTRIES_BY_ID,
+  CREATE_ACTIVITY,
 } from "./actions";
 
 const initialState = {
   allCountries: [],
   countries: [],
   activities: [],
+  countryDetail: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -49,13 +52,11 @@ const rootReducer = (state = initialState, action) => {
     case ORDER_ASC_DES: {
       action.payload === "A-Z"
         ? state.countries.sort((a, b) => {
-            console.log(action.payload);
             if (a.name > b.name) return 1;
             if (a.name < b.name) return -1;
             return 0;
           })
         : state.countries.sort((a, b) => {
-            console.log(action.payload);
             if (a.name < b.name) return 1;
             if (a.name > b.name) return -1;
             return 0;
@@ -68,7 +69,6 @@ const rootReducer = (state = initialState, action) => {
     case ORDER_POPULATION: {
       action.payload === "↥ population"
         ? state.countries.sort((a, b) => {
-            console.log(a.population);
             if (a.population > b.population) return 1;
             if (a.population < b.population) return -1;
             return 0;
@@ -89,7 +89,16 @@ const rootReducer = (state = initialState, action) => {
         ...state,
         activities: action.payload,
       };
+    case GET_COUNTRIES_BY_ID:
+      return {
+        ...state,
+        countryDetail: action.payload,
+      };
 
+    case CREATE_ACTIVITY:
+      return {
+        ...state,
+      };
     default:
       return { ...state };
   }

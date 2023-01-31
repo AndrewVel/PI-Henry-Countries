@@ -1,12 +1,14 @@
 import SearchBar from "../SearchBar/SearchBar";
-import Filter from "../Filter/Filter";
+import Filter from "../Filter and Order/Filter";
+import Order from "../Filter and Order/Order";
 import "./BarModule.css";
 
-const Bar = ({ activities }) => {
+const Bar = ({ activities, setCurrentPage }) => {
   return (
     <div className="bar">
-      <SearchBar />
-      <Filter activities={activities} />
+      <Filter activities={activities} setCurrentPage={setCurrentPage} />
+      <SearchBar setCurrentPage={setCurrentPage} />
+      <Order activities={activities} setCurrentPage={setCurrentPage} />
     </div>
   );
 };

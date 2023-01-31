@@ -4,8 +4,8 @@ import "./InitialPageModule.css";
 
 const initialPage = () => {
   return (
-    <div className="container2">
-      <Link to="/home">
+    <div className="contentsStart">
+      <Link to="/home" className="start">
         <span>COMENZAR</span>
       </Link>
     </div>

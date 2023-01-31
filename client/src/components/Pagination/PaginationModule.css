@@ -1,0 +1,16 @@
+.buttonNumber {
+  background-color: white;
+  color: rgb(8, 0, 122);
+  border-radius: 20px;
+  width: 30px;
+  height: 30px;
+  margin: 0px 1px 0px 1px;
+  transition: 0.2s all;
+  border: none;
+}
+
+.buttonNumber:hover {
+  background-color: #03e8f4b0;
+  color: black;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4;
+}

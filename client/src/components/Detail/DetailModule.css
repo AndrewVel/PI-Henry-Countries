@@ -1,0 +1,158 @@
+.nameCountry {
+  font-family: Arial;
+  font-size: 40px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgb(8, 0, 122), 0 0 10px #fff, 0 0 15px #fff,
+    0 0 20px #03e9f4, 0 0 30px #03e9f4, 0 0 40px #03e9f4;
+}
+
+.backHome {
+  position: absolute;
+  top: 2%;
+  left: 1%;
+  padding: 10px 20px; /*forma de boton */
+  color: #03e9f4;
+  transition: 0.5s;
+  letter-spacing: 3px; /*espacio entre letras */
+  box-shadow: 0 0 5px #03e9f4, 0 0 5px #03e9f4, 0 0 5px #03e9f4;
+  border-radius: 100px 0px 0px 100px;
+  background-color: black;
+  font-family: "Raleway", sans-serif;
+  font-weight: 900;
+}
+
+.backHome:hover {
+  background: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+    0 0 700px #03e9f4;
+}
+
+/* ------------------------------------------------------- */
+.containerAll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* -------------------------------------------------- */
+.containerDetail {
+  display: flex;
+  border-radius: 20px;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+/* ------------------------------------------------------- */
+.containerflags {
+  height: 325px;
+  align-items: center;
+  display: flex;
+  border-radius: 25px;
+  margin-left: 2%;
+  justify-content: space-around;
+}
+
+.imageFlag {
+  height: 100%;
+}
+
+/* ---------------------------------------------------- */
+.containerCountry {
+  width: 400px;
+  height: 300px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.521);
+  display: flex;
+  border-radius: 25px;
+  justify-content: space-around;
+}
+
+.containerData {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  width: 35%;
+}
+
+.containerData p {
+  margin-top: 0px;
+  font-size: larger;
+  color: darkblue;
+  font-weight: 700;
+}
+
+.containerDataResult {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 50%;
+}
+.containerDataResult p {
+  margin-top: 0px;
+  font-size: larger;
+  font-weight: 500;
+  font-style: italic;
+}
+/* ------------------------------------------------------- */
+
+.cardActivity {
+  width: 250px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 25px;
+  background: rgba(255, 255, 255, 0.521);
+}
+
+.cotainerColum {
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
+}
+.cotainerActivity {
+  width: 35%;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+}
+.cotainerActivity p {
+  margin-top: 0px;
+  font-size: medium;
+  color: darkgreen;
+  font-weight: 700;
+}
+
+.containerDataActivity {
+  margin-left: 5%;
+  width: 50%;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+}
+.containerDataActivity p {
+  margin-top: 0px;
+  font-size: medium;
+  font-weight: 500;
+  font-style: italic;
+}
+
+.nameActivity {
+  font-family: Arial;
+  font-size: 30px;
+  letter-spacing: 1px;
+  color: #ffffff;
+  text-shadow: 0 0 5px rgb(0, 54, 3), 0 0 10px #fff, 0 0 15px #139b01,
+    0 0 20px #017c15, 0 0 30px #06ee2c, 0 0 40px #0aff33;
+}
+
+.containerCardsActivity {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-left: 3%;
+  margin-right: 3%;
+}
+
+.ContainerActivitiesDetail {
+  width: 90%;
+}

@@ -6,18 +6,18 @@ const Select = (props) => {
 
   const handleSelect = (event) => {
     const option = event.target.value;
-    option === "None" || option === "All"
-      ? dispatch(getCountries())
-      : dispatch(props.funtion(option));
+    props.setCurrentPage(1);
+    if (option === "All") return dispatch(getCountries());
+    if (option !== "None") return dispatch(props.funtion(option));
   };
 
   return (
     <div>
       <select className="select" onChange={handleSelect}>
-        {props.list.map((option) => {
+        {props.list.map((op) => {
           return (
-            <option value={option.name} key={option.name}>
-              {option.name}
+            <option value={op} key={op}>
+              {op}
             </option>
           );
         })}

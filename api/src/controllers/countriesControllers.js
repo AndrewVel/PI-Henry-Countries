@@ -1,7 +1,6 @@
 const { Country, Activity } = require("../db");
 const { extractData } = require("./funciones");
 const { Op } = require("sequelize");
-const { population } = require("../../../client/src/components/Filter/Order");
 
 const getListCountries = async () => {
   try {

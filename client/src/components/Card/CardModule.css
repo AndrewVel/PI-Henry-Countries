@@ -1,21 +1,14 @@
 .card {
-  width: 300px;
-  height: 300px;
+  width: 240px;
+  height: 220px;
   display: flex;
   flex-direction: column;
-
-  margin: 2% 1% 2% 1%;
-  box-shadow: 0px 7px 5px 5px rgba(0, 0, 0, 0.25);
   border-radius: 0px 0px 50px 50px;
   transition: 0.2s all;
+  color: #050801;
   background: rgba(255, 255, 255, 0.521);
-  backdrop-filter: blur(5px);
 }
 
-.card:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 20px #03e9f4;
-}
 /* ------------------------------------------------------------------------------------------ */
 .textBox {
   height: 25%;
@@ -28,15 +21,28 @@
 /* ------------------------------------------------------------------------------------------ */
 .name {
   font-family: Arial;
-  font-size: 20px;
+  font-size: 15px;
   letter-spacing: 1px;
   text-transform: uppercase;
   margin-left: 2%;
   margin-right: 2%;
+  margin-top: 1%;
 }
 
 .continents {
   font-family: Arial;
   text-transform: capitalize;
-  font-size: 18px;
+  font-size: 15px;
+}
+
+.a:link {
+  margin: 1% 1% 2% 1%;
+}
+
+.a:link:hover {
+  background: #03e9f4;
+  color: #050801;
+  box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4;
+  transform: scale(1.1);
+  border-radius: 0px 0px 50px 50px;
 }
