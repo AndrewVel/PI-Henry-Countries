@@ -8,6 +8,9 @@ import {
   GET_COUNTRIES_BY_ACTIVITIES,
   GET_COUNTRIES_BY_ID,
   CREATE_ACTIVITY,
+  DELETE_ACTIVITY,
+  UPDATE_ACTIVITY,
+  GET_ACTIVITY_BY_ID,
 } from "./actions";
 
 const initialState = {
@@ -15,6 +18,7 @@ const initialState = {
   countries: [],
   activities: [],
   countryDetail: {},
+  activityUpdate: {},
 };
 
 const rootReducer = (state = initialState, action) => {
@@ -99,6 +103,23 @@ const rootReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+
+    case DELETE_ACTIVITY:
+      return {
+        ...state,
+      };
+
+    case UPDATE_ACTIVITY:
+      return {
+        ...state,
+      };
+
+    case GET_ACTIVITY_BY_ID:
+      return {
+        ...state,
+        activityUpdate: action.payload,
+      };
+
     default:
       return { ...state };
   }

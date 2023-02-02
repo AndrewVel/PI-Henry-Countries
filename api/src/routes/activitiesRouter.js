@@ -3,6 +3,9 @@ const { Router } = require("express");
 const {
   createActivity,
   getListActivities,
+  deleteActivity,
+  updateActivity,
+  activityById,
 } = require("../controllers/activitiesControllers");
 
 const activitiesRouter = Router();
@@ -27,6 +30,44 @@ activitiesRouter.get("/", async (req, res) => {
   try {
     const listActivities = await getListActivities();
     res.status(200).json(listActivities);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+activitiesRouter.delete("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const actyDelete = await deleteActivity(id);
+    res.status(200).json(actyDelete);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+activitiesRouter.put("/:id", async (req, res) => {
+  try {
+    const { name, difficulty, duration, season, countries } = req.body;
+    const { id } = req.params;
+    const activity = await updateActivity(
+      id,
+      name,
+      difficulty,
+      duration,
+      season,
+      countries
+    );
+    res.status(200).json(activity);
+  } catch (error) {
+    res.status(400).json({ error: error.message });
+  }
+});
+
+activitiesRouter.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const activity = await activityById(id);
+    res.status(200).json(activity);
   } catch (error) {
     res.status(400).json({ error: error.message });
   }

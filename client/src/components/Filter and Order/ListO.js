@@ -1,5 +1,5 @@
 const continents = [
-  "All",
+  "Continents",
   "South America",
   "North America",
   "Africa",
@@ -9,8 +9,8 @@ const continents = [
   "Antarctica",
 ];
 
-const AscDsc = ["None", "A-Z", "Z-A"];
+const AscDsc = ["Alphabetical", "A-Z", "Z-A"];
 
-const population = ["None", "↥ population", "↧ population"];
+const population = ["Population", "↥ population", "↧ population"];
 
 module.exports = { continents, AscDsc, population };

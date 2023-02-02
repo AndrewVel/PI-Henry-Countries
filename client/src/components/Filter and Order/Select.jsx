@@ -7,7 +7,8 @@ const Select = (props) => {
   const handleSelect = (event) => {
     const option = event.target.value;
     props.setCurrentPage(1);
-    if (option === "All") return dispatch(getCountries());
+    if (option === "Continents" || option === "Activities")
+      return dispatch(getCountries());
     if (option !== "None") return dispatch(props.funtion(option));
   };
 

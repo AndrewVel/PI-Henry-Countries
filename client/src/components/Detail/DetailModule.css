@@ -9,8 +9,8 @@
 
 .backHome {
   position: absolute;
-  top: 2%;
-  left: 1%;
+  top: 5%;
+  left: 5%;
   padding: 10px 20px; /*forma de boton */
   color: #03e9f4;
   transition: 0.5s;
@@ -38,8 +38,7 @@
 /* -------------------------------------------------- */
 .containerDetail {
   display: flex;
-  border-radius: 20px;
-  justify-content: space-around;
+  justify-content: space-evenly;
   flex-wrap: wrap;
 }
 /* ------------------------------------------------------- */
@@ -50,10 +49,12 @@
   border-radius: 25px;
   margin-left: 2%;
   justify-content: space-around;
+  margin-bottom: 15px;
 }
 
 .imageFlag {
   height: 100%;
+  box-shadow: 5px 5px 15px #050801, 5px 5px 25px #050801;
 }
 
 /* ---------------------------------------------------- */
@@ -65,6 +66,7 @@
   display: flex;
   border-radius: 25px;
   justify-content: space-around;
+  box-shadow: 5px 5px 15px #050801, 5px 5px 25px #050801;
 }
 
 .containerData {
@@ -102,6 +104,7 @@
   flex-direction: column;
   border-radius: 25px;
   background: rgba(255, 255, 255, 0.521);
+  margin-bottom: 3%;
 }
 
 .cotainerColum {

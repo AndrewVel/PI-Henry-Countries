@@ -1,21 +1,42 @@
 .barra {
   background: url(https://cdn-icons-png.flaticon.com/512/2851/2851067.png)
-    no-repeat 0px 5px;
+    no-repeat 5px 5px;
   background-size: 30px;
-  width: 500px;
+  width: 40px;
   border: transparent;
-  border-bottom: solid 1px white;
-  padding: 10px 10px 10px 40px;
+  padding: 10px 10px 10px 10px;
   outline: none;
-  color: white;
-  font-size: large;
-  margin-bottom: 30px;
+  transition: 0.5s all;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 50px;
+  background-color: white;
+}
+
+.barra:hover {
+  width: 300px;
+  background: url(https://cdn-icons-png.flaticon.com/512/2851/2851067.png)
+    no-repeat 3px 5px;
+  background-size: 30px;
+  padding: 10px 10px 10px 50px;
+  background-color: white;
+  color: darkblue;
+  box-shadow: 0 0 5px #03e9f4, 0 0 5px #03e9f4, 0 0 5px #03e9f4;
+}
+.barra:focus {
+  width: 300px;
+  color: darkblue;
+  background: url(https://cdn-icons-png.flaticon.com/512/2851/2851067.png)
+    no-repeat 3px 5px;
+  background-size: 30px;
+  padding: 10px 10px 10px 50px;
+  background-color: white;
+  color: darkblue;
+  box-shadow: 0 0 5px #03e9f4, 0 0 5px #03e9f4, 0 0 5px #03e9f4;
 }
 
 .title {
   margin-top: 0;
   font-family: Arial;
-  font-size: 40px;
   letter-spacing: 1px;
   color: #ffffff;
   text-shadow: 0 0 5px rgb(8, 0, 122), 0 0 10px #fff, 0 0 15px #fff,
@@ -23,6 +44,7 @@
 }
 
 .goActivity {
+  height: fit-content;
   padding: 10px 20px; /*forma de boton */
   color: #03e9f4;
   transition: 0.5s;
@@ -30,7 +52,9 @@
   box-shadow: 0 0 5px #03e9f4, 0 0 5px #03e9f4, 0 0 5px #03e9f4;
   border-radius: 100px;
   background-color: black;
+  font-size: small;
   font-family: "Raleway", sans-serif;
+  margin-right: 10px;
 }
 
 .goActivity:hover {

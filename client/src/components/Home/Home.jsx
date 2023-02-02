@@ -4,7 +4,6 @@ import Bar from "../Bar/Bar";
 
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-
 import { getCountries, getActivities } from "../../redux/actions";
 
 // import SearchBar from "../SearchBar/SearchBar";
@@ -44,6 +43,8 @@ const Home = () => {
   return (
     <div>
       <Bar activities={activities} setCurrentPage={setCurrentPage} />
+      <h1 className="title">COUNTRIES</h1>
+
       {!countries.length ? (
         <div>
           <h1 className="countryFail">No Matches Found</h1>

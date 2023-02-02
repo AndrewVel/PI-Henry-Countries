@@ -1,45 +1,13 @@
-.barraFiltros {
-  background-color: rgba(0, 0, 0, 0.651);
-  justify-content: center;
-  align-items: center;
-  padding: 1%;
-  border-radius: 15px;
-}
-
 .select {
   background-color: #0f0c29;
   color: white;
-  padding: 5px 10px 5px 10px;
   width: 150px;
   font-size: 15px;
   outline: none;
-  border-radius: 6px;
-  margin-top: 5px;
 }
 
 .select:hover {
   transform: scale(1.05);
   box-shadow: 0 0 20px #7c5fe4;
   border: none;
-}
-
-.nameFilter {
-  font-family: Arial, Helvetica, sans-serif;
-  color: aliceblue;
-  font-size: 15px;
-  letter-spacing: 1px;
-}
-
-.filter {
-  font-family: Arial, Helvetica, sans-serif;
-  color: aliceblue;
-  font-size: 18px;
-  letter-spacing: 1px;
-  margin-left: 3%;
-  margin-right: 1%;
-  letter-spacing: 1px;
-}
-
-.continerSelect {
-  display: flex;
 }

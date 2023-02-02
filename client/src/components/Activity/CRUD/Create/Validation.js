@@ -4,8 +4,6 @@ export const validation = (dato) => {
 
   let error = {};
 
-  console.log(!dato.name || !dato.duration || !dato.countries.length);
-
   if (!dato.name || !dato.duration || !dato.countries.length) {
     return error;
   } else {

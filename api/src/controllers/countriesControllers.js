@@ -37,12 +37,11 @@ const countryByName = async (name) => {
     attributes: ["name", "flags", "continents", "id", "population"],
   });
   if (!country.length) {
-    throw Error("No Matches Found");
+    throw Error("No se encontraron coincidencias");
   }
   return country;
 };
 
-// [ ] Actividades turísticas con toda su información asociada
 const countryById = async (id) => {
   const country = await Country.findOne({
     where: { id },
@@ -54,7 +53,7 @@ const countryById = async (id) => {
     },
   });
 
-  if (!country) throw Error(`The ID:${id} does not belong to any country`);
+  if (!country) throw Error(`La ID:${id} no pertenece a ningun Pais`);
 
   return country;
 };

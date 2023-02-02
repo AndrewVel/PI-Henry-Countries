@@ -1,10 +1,11 @@
-import { React, useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import { getCountryById } from "../../redux/actions";
 import { Link } from "react-router-dom";
 import "./DetailModule.css";
 import CardsActivity from "./CardsActivity";
+
 const Detail = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const Detail = () => {
           <div className="containerCardsActivity">
             {country.activities && country.activities.length ? (
               country.activities.map((activity) => {
-                return <CardsActivity activity={activity} />;
+                return <CardsActivity activity={activity} key={activity.id} />;
               })
             ) : (
               <div>

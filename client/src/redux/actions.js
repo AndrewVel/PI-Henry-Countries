@@ -9,6 +9,9 @@ export const GET_ACTIVITIES = "GET_ACTIVITIES";
 export const GET_COUNTRIES_BY_ACTIVITIES = "GET_COUNTRIES_BY_ACTIVITIES";
 export const GET_COUNTRIES_BY_ID = "GET_COUNTRIES_BY_ID";
 export const CREATE_ACTIVITY = "CREATE_ACTIVITY";
+export const DELETE_ACTIVITY = "DELETE_ACTIVITY";
+export const UPDATE_ACTIVITY = "UPDATE_ACTIVITY";
+export const GET_ACTIVITY_BY_ID = " GET_ACTIVITY_BY_ID";
 
 //Traer a todos los paises
 export const getCountries = () => {
@@ -21,15 +24,13 @@ export const getCountries = () => {
 //Traer pais por nombre
 export const getCountriesByName = (name) => {
   return function (dispatch) {
-    try {
-      fetch(`http://localhost:3001/countries?name=${name}`)
-        .then((response) => response.json())
-        .then((data) =>
-          dispatch({ type: GET_COUNTRIES_BY_NAME, payload: data })
-        );
-    } catch (error) {
-      return alert(error);
-    }
+    fetch(`http://localhost:3001/countries?name=${name}`)
+      .then((response) => response.json())
+      .then((data) => {
+        !data.error
+          ? dispatch({ type: GET_COUNTRIES_BY_NAME, payload: data })
+          : alert(data.error);
+      });
   };
 };
 
@@ -82,9 +83,47 @@ export const createActivity = (activity) => {
       "http://localhost:3001/activities",
       activity
     );
+    alert(response.data.message);
     return dispatch({
       type: CREATE_ACTIVITY,
       payload: response,
     });
+  };
+};
+
+export const deleteActivity = (id) => {
+  return async function (dispatch) {
+    const response = await axios.delete(
+      `http://localhost:3001/activities/${id}`
+    );
+    console.log(response.data);
+    alert(response.data);
+    return dispatch({
+      type: DELETE_ACTIVITY,
+    });
+  };
+};
+
+export const updateActivity = (activity) => {
+  return async function (dispatch) {
+    const response = await axios.put(
+      `http://localhost:3001/activities/${activity.id}`,
+      activity
+    );
+    console.log(response.data);
+    alert(response.data);
+    return dispatch({
+      type: UPDATE_ACTIVITY,
+    });
+  };
+};
+
+export const getActivityById = (id) => {
+  return function (dispatch) {
+    fetch(`http://localhost:3001/activities/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        dispatch({ type: GET_ACTIVITY_BY_ID, payload: data });
+      });
   };
 };

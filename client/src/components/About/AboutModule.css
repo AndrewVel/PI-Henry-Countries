@@ -1,0 +1,132 @@
+.about-left {
+  margin: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
+.about-img img {
+  display: block;
+  width: 200px;
+}
+.about-img {
+  width: 200px;
+  height: 200px;
+  overflow: hidden;
+  border-radius: 50%;
+  transition: all 0.5s ease-in-out;
+}
+
+.about-left-content h2 {
+  font-size: 2rem;
+  margin: 2.2rem 0 0.6rem 0;
+  line-height: 1.2;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #03e9f4;
+}
+.about-left-content h3 {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+}
+
+.about-right {
+  background: #12192c;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+}
+.about-right h1 {
+  font-size: 5rem;
+  text-transform: uppercase;
+}
+.about-right h1 span {
+  color: #03e9f4;
+}
+.about-right h2 {
+  font-weight: 600;
+}
+.about-btns {
+  display: flex;
+  margin: 2rem 0;
+}
+.btn {
+  border: none;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  border: 2px solid #fff;
+  border-radius: 20px;
+  padding: 0.55rem 0;
+  width: 130px;
+  font-weight: 600;
+  background: transparent;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btn.btn-pink {
+  background: #03e9f4;
+  color: #fff;
+  border-color: #03e9f4;
+  transition: all 0.5s ease-in-out;
+}
+.btn.btn-pink:hover {
+  background: transparent;
+  border-color: #fff;
+  color: #fff;
+}
+.btn.btn-white {
+  transition: all 0.5s ease-in-out;
+}
+.btn.btn-white:hover {
+  background: #03e9f4;
+  border-color: #03e9f4;
+  color: #fff;
+}
+
+@media screen and (min-width: 992px) {
+  .about-wrapper {
+    display: grid;
+    grid-template-columns: repeat(2, 2fr);
+  }
+
+  .about-left {
+    position: relative;
+  }
+  .about-left-content {
+    position: absolute;
+    width: 80%;
+  }
+}
+
+.icons {
+  background: #12192c;
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem 0;
+  border-radius: 25px;
+}
+.icons li {
+  list-style-type: none;
+  background: #03e9f4;
+  color: #fff;
+  width: 40px;
+  height: 40px;
+  margin: 0 0.5rem;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+.icons li:hover {
+  background: #edffec;
+  color: #000;
+}
