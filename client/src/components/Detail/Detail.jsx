@@ -16,12 +16,12 @@ const Detail = () => {
 
   return (
     <div className="containerAll">
+      <h1 className="nameCountry">{country.name}</h1>
       <div>
         <Link to="/home" className="backHome">
-          <span>BACK HOME</span>
+          <span>⫷</span>
         </Link>
       </div>
-      <h1 className="nameCountry">{country.name}</h1>
       <div className="containerDetail">
         <div className="containerflags">
           <img src={country.flags} className="imageFlag" alt="country.name" />
@@ -41,25 +41,24 @@ const Detail = () => {
             <p>{country.capital}</p>
             <p> {country.subregion ? country.subregion : "Sin Datos"}</p>
             <p> {country.area / 1000} km2</p>
-            <p>{country.population} population</p>
+            <p>{country.population} </p>
           </div>
         </div>
-
-        <div className="ContainerActivitiesDetail">
-          <h2 className="nameActivity">Activities list</h2>
-          <div className="containerCardsActivity">
-            {country.activities && country.activities.length ? (
-              country.activities.map((activity) => {
-                return <CardsActivity activity={activity} key={activity.id} />;
-              })
-            ) : (
-              <div>
-                <h1 className="countryFail">
-                  This country has no registered activities
-                </h1>
-              </div>
-            )}
-          </div>
+      </div>
+      <div className="ContainerActivitiesDetail">
+        <h2 className="nameActivity">Activities list</h2>
+        <div className="containerCardsActivity">
+          {country.activities && country.activities.length ? (
+            country.activities.map((activity) => {
+              return <CardsActivity activity={activity} key={activity.id} />;
+            })
+          ) : (
+            <div>
+              <h1 className="countryFail">
+                This country has no registered activities
+              </h1>
+            </div>
+          )}
         </div>
       </div>
     </div>

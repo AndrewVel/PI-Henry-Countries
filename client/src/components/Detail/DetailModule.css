@@ -1,6 +1,7 @@
 .nameCountry {
+  width: 55%;
   font-family: Arial;
-  font-size: 40px;
+  font-size: 30px;
   letter-spacing: 1px;
   color: #ffffff;
   text-shadow: 0 0 5px rgb(8, 0, 122), 0 0 10px #fff, 0 0 15px #fff,
@@ -9,7 +10,7 @@
 
 .backHome {
   position: absolute;
-  top: 5%;
+  top: 3%;
   left: 5%;
   padding: 10px 20px; /*forma de boton */
   color: #03e9f4;
@@ -31,38 +32,45 @@
 
 /* ------------------------------------------------------- */
 .containerAll {
+  margin-top: 1%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 /* -------------------------------------------------- */
 .containerDetail {
+  margin-bottom: 2%;
+  width: 96%;
   display: flex;
   justify-content: space-evenly;
+  align-items: center;
+  flex-wrap: wrap;
   flex-wrap: wrap;
 }
 /* ------------------------------------------------------- */
 .containerflags {
-  height: 325px;
-  align-items: center;
+  height: 300px;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  min-width: 350px;
   display: flex;
-  border-radius: 25px;
-  margin-left: 2%;
-  justify-content: space-around;
-  margin-bottom: 15px;
+  justify-content: center;
+  align-items: center;
 }
 
 .imageFlag {
-  height: 100%;
+  max-width: 500px;
+  max-height: 300px;
   box-shadow: 5px 5px 15px #050801, 5px 5px 25px #050801;
 }
 
 /* ---------------------------------------------------- */
 .containerCountry {
-  width: 400px;
   height: 300px;
+  width: 30%;
+  min-width: 350px;
   align-items: center;
-  background: rgba(255, 255, 255, 0.521);
+  background: rgba(255, 255, 255, 0.829);
   display: flex;
   border-radius: 25px;
   justify-content: space-around;
@@ -73,7 +81,7 @@
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  width: 35%;
+  width: 40%;
 }
 
 .containerData p {
@@ -95,6 +103,7 @@
   font-weight: 500;
   font-style: italic;
 }
+
 /* ------------------------------------------------------- */
 
 .cardActivity {
@@ -158,4 +167,30 @@
 
 .ContainerActivitiesDetail {
   width: 90%;
+}
+
+@media screen and (max-width: 750px) {
+  .containerAll {
+    display: flex;
+
+    width: 100%;
+    margin: none;
+    padding: none;
+  }
+  .containerDetail {
+    width: 80%;
+  }
+  .containerflags {
+    width: 100%;
+    height: auto;
+    margin: none;
+    padding: none;
+  }
+
+  .containerCountry {
+    margin-top: 30px;
+  }
+  .containerflags .imageFlag {
+    width: 100%;
+  }
 }

@@ -1,7 +1,6 @@
 import SearchBar from "../SearchBar/SearchBar";
 import Filter from "../Filter and Order/Filter";
 import Order from "../Filter and Order/Order";
-import Me from "../About/About";
 import { Link } from "react-router-dom";
 import "./BarModule.css";
 
@@ -9,6 +8,7 @@ const Bar = ({ activities, setCurrentPage }) => {
   return (
     <div>
       <div className="normalBar">
+        <span class="btn-select"></span>
         <div className="containerSearchBarx">
           <SearchBar setCurrentPage={setCurrentPage} />
         </div>
@@ -31,13 +31,12 @@ const Bar = ({ activities, setCurrentPage }) => {
             About me
           </a>
           <div className="submenu"></div>
+          <br></br>
         </div>
         <Link to="/activity/" className="goActivity">
           <span>CRUD ACTIVITY</span>
         </Link>
       </div>
-
-      <div className="miniBar"></div>
     </div>
   );
 };

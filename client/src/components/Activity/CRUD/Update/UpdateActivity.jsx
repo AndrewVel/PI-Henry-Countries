@@ -36,7 +36,8 @@ const UpdateActivity = () => {
     if (!countries2.length) {
       dispatch(getCountries());
     }
-  }, [dispatch, activitiUpdate.length, activity, countries2.length, id]);
+  }, [activitiUpdate.length, activity, countries2.length, dispatch, id]);
+
   const handleChange = (event) => {
     const property = event.target.name;
     const value = event.target.value;
@@ -53,15 +54,15 @@ const UpdateActivity = () => {
     const property = event.target.name;
     const value = event.target.value;
     if (value !== "Select countries..") {
-      setActivity((estado) => {
+      setActivity((activity) => {
         if (property === "countries") {
           return {
-            ...estado,
-            countries: [...estado.countries, value],
+            ...activity,
+            countries: [...activity.countries, value],
           };
         } else {
           return {
-            ...estado,
+            ...activity,
             [property]: value,
           };
         }
@@ -94,10 +95,10 @@ const UpdateActivity = () => {
   return (
     <div className={s.containerAllCreate}>
       <Link to="/activity" className="backHome">
-        <span>BACK</span>
+        <span>⫷</span>
       </Link>
       <div className={s.titleFroms}>
-        <h2>Update your Tourist Activity</h2>
+        <h2>Update the Activity</h2>
       </div>
       <div className={s.xxx}>
         <div className={s.containerFrom}>
@@ -116,7 +117,7 @@ const UpdateActivity = () => {
                   type="text"
                   placeholder="Name..."
                   name="name"
-                  value={activity.name}
+                  value={activitiUpdate.name}
                   onChange={(e) => handleChange(e)}
                 />
                 {error.name ? (
@@ -134,7 +135,11 @@ const UpdateActivity = () => {
                   id="difficulty"
                   name="difficulty"
                   onChange={(e) => handleChange(e)}
-                  value={activity.difficulty}
+                  value={
+                    !activity.difficulty
+                      ? activitiUpdate.difficulty
+                      : activity.difficulty
+                  }
                 >
                   {listDificulty.map((op) => (
                     <option key={op} value={op}>
@@ -159,7 +164,11 @@ const UpdateActivity = () => {
                     type="number"
                     placeholder="Duration..."
                     name="duration"
-                    value={activity.duration}
+                    value={
+                      !activity.duration
+                        ? activitiUpdate.duration
+                        : activity.duration
+                    }
                     onChange={(e) => handleChange(e)}
                   />
                   <label>hours</label>
@@ -179,10 +188,14 @@ const UpdateActivity = () => {
                   id="season"
                   name="season"
                   onChange={(e) => handleChange(e)}
-                  value={activity.season}
+                  value={
+                    !activity.season ? activitiUpdate.season : activity.season
+                  }
                 >
                   {listSeason.map((op) => (
-                    <option value={op}>{op}</option>
+                    <option value={op} key={op}>
+                      {op}
+                    </option>
                   ))}
                 </select>
                 {error.season ? (
@@ -192,27 +205,32 @@ const UpdateActivity = () => {
                 )}
               </div>
               {/* /////////////////////////////////////////// */}
-
-              <div className={s.containerDataSelect}>
-                <p className={s.pTitle}>Country selections</p>
-                <br></br>
-                <select
-                  className={s.inputData}
-                  name="countries"
-                  id="countries"
-                  onChange={(e) => handleSelect(e)}
-                >
-                  <option>Select countries..</option>
-                  {countries2.map((contry) => (
-                    <option value={contry.id}>{contry.name}</option>
-                  ))}
-                </select>
-                {error.countries ? (
-                  <p className={s.errors}>{error.countries}</p>
-                ) : (
-                  <p className={s.sinError}>-</p>
-                )}
-              </div>
+              {activity.countries.length ? (
+                <div className={s.containerDataSelect}>
+                  <p className={s.pTitle}>Country selections</p>
+                  <br></br>
+                  <select
+                    className={s.inputData}
+                    name="countries"
+                    id="countries"
+                    onChange={(e) => handleSelect(e)}
+                  >
+                    <option>Select countries..</option>
+                    {countries2.map((contry) => (
+                      <option value={contry.id} key={contry.id}>
+                        {contry.name}
+                      </option>
+                    ))}
+                  </select>
+                  {error.countries ? (
+                    <p className={s.errors}>{error.countries}</p>
+                  ) : (
+                    <p className={s.sinError}>-</p>
+                  )}
+                </div>
+              ) : (
+                <></>
+              )}
 
               <button
                 className={s.buttonSubmit}

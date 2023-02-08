@@ -7,7 +7,7 @@ import Select from "./Select.jsx";
 
 const Order = ({ setCurrentPage }) => {
   return (
-    <div>
+    <div className="filtros">
       <Select
         funtion={orderAsdDes}
         list={AscDsc}

@@ -15,7 +15,7 @@ const Filter = ({ activities, setCurrentPage }) => {
   });
 
   return (
-    <div>
+    <div className="filtros">
       <Select
         funtion={getCountriesByContinents}
         list={continents}

@@ -14,13 +14,20 @@ export const UPDATE_ACTIVITY = "UPDATE_ACTIVITY";
 export const GET_ACTIVITY_BY_ID = " GET_ACTIVITY_BY_ID";
 
 //Traer a todos los paises
+
 export const getCountries = () => {
   return function (dispatch) {
-    fetch("http://localhost:3001/countries")
+    fetch("http://localhost:3001/countries/")
       .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_COUNTRIES, payload: data }));
+      .then((data) => {
+        dispatch({
+          type: GET_COUNTRIES,
+          payload: data,
+        });
+      });
   };
 };
+
 //Traer pais por nombre
 export const getCountriesByName = (name) => {
   return function (dispatch) {
@@ -97,9 +104,9 @@ export const deleteActivity = (id) => {
       `http://localhost:3001/activities/${id}`
     );
     console.log(response.data);
-    alert(response.data);
     return dispatch({
       type: DELETE_ACTIVITY,
+      payload: response.data,
     });
   };
 };

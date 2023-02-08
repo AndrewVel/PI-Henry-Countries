@@ -47,7 +47,7 @@ const Home = () => {
 
       {!countries.length ? (
         <div>
-          <h1 className="countryFail">No Matches Found</h1>
+          <h1 className="countryFail">One moment, please 😓</h1>
         </div>
       ) : (
         <div>

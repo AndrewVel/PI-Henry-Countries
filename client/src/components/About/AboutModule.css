@@ -18,6 +18,11 @@
   border-radius: 50%;
   transition: all 0.5s ease-in-out;
 }
+.about-img:hover {
+  scale: 1.2;
+  box-shadow: 0 0 35px #03e9f4, 0 0 35px #03e9f4, 0 0 35px #03e9f4,
+    0 0 35px #03e9f4, 0 0 35px #03e9f4, 0 0 35px #03e9f4;
+}
 
 .about-left-content h2 {
   font-size: 2rem;

@@ -1,7 +1,17 @@
 import { Link } from "react-router-dom";
 import ListActivity from "./CRUD/List/ListActivity";
 import s from "./Activity.Module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getActivities } from "../../redux/actions";
+
 const Activity = () => {
+  const dispatch = useDispatch();
+  const activities = useSelector((state) => state.activities);
+
+  useEffect(() => {
+    dispatch(getActivities());
+  }, [dispatch]);
   return (
     <div>
       <div>
@@ -16,7 +26,7 @@ const Activity = () => {
       </div>
       <h1 className={s.title}>CRUD ACTIVITIES</h1>
       <div>
-        <ListActivity />
+        <ListActivity activities={activities} />
       </div>
     </div>
   );

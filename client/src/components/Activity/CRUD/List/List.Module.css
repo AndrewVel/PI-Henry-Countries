@@ -96,3 +96,25 @@
     0px 0px 55px darkred;
   border: 1px solid rgb(255, 174, 174);
 }
+
+@media screen and (max-width: 750px) {
+  .TitleName {
+    width: 180px;
+  }
+  .listAName {
+    width: 180px;
+  }
+
+  .TitleName,
+  .Title,
+  .listAName,
+  .listA {
+    font-size: small;
+  }
+  .Title,
+  .listA {
+    min-width: none;
+    width: 70px;
+    min-width: 70px;
+  }
+}

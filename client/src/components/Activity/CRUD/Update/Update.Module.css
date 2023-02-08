@@ -192,3 +192,20 @@ label {
   text-shadow: 0 0 5px rgb(0, 54, 3), 0 0 10px #fff, 0 0 15px #139b01,
     0 0 20px #017c15, 0 0 30px #06ee2c, 0 0 40px #0aff33;
 }
+
+@media screen and (max-width: 750px) {
+  .titleFroms,
+  .titleListContries {
+    font-size: 15px;
+  }
+
+  .xxx {
+    width: 100%;
+    align-items: center;
+    flex-direction: column;
+  }
+  .containerFrom {
+    display: flexbox;
+    padding: 20px 30px 10px 30px;
+  }
+}

@@ -39,6 +39,7 @@ activitiesRouter.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const actyDelete = await deleteActivity(id);
+    console.log(actyDelete);
     res.status(200).json(actyDelete);
   } catch (error) {
     res.status(400).json({ error: error.message });

@@ -2,11 +2,10 @@ import React, { useState, useEffect } from "react";
 import { listDificulty, listSeason } from "./OptionList";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, createActivity } from "../../../../redux/actions";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { validation } from "./Validation";
 import s from "./Create.Module.css";
 const CreateActivity = () => {
-  const history = useHistory();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
   //--------------------------------------Control y datos de froms
@@ -86,7 +85,7 @@ const CreateActivity = () => {
   return (
     <div className={s.containerAllCreate}>
       <Link to="/activity" className="backHome">
-        <span>BACK</span>
+        <span>⫷</span>
       </Link>
       <div className={s.titleFroms}>
         <h2>Create your Tourist Activity</h2>
@@ -215,7 +214,7 @@ const CreateActivity = () => {
         {/* //-----------------------countries */}
         {activity.countries.length ? (
           <div className={s.ContainerCountrySelectAll}>
-            <h1 className={s.titleListContries}>List of Selected Countries</h1>
+            <h2 className={s.titleListContries}>List of Selected Countries</h2>
 
             <div className={s.ContainerCountrySelect}>
               {activity.countries.map((e) => (

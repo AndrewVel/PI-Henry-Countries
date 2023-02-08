@@ -107,6 +107,7 @@ const rootReducer = (state = initialState, action) => {
     case DELETE_ACTIVITY:
       return {
         ...state,
+        activities: action.payload,
       };
 
     case UPDATE_ACTIVITY:

@@ -11,3 +11,18 @@
   box-shadow: 0 0 20px #7c5fe4;
   border: none;
 }
+
+@media screen and (max-width: 750px) {
+  .select:hover {
+    transform: scale(1);
+    box-shadow: 0 0 20px #7c5fe4;
+
+    border: none;
+  }
+
+  .filtros {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

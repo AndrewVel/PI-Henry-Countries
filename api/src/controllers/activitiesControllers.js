@@ -21,6 +21,7 @@ const createActivity = async (
     throw Error("La temporada debe ser una valida");
 
   if (!countries.length) throw Error("Debe tener almenos un Pais vinculado");
+
   try {
     const [activity, created] = await Activity.findOrCreate({
       where: { name: name },
@@ -69,7 +70,17 @@ const deleteActivity = async (id) => {
     confir === 1
       ? (message = `La actividad ${activityDelete.dataValues.name} se elimino correctamente`)
       : (message = `La actividad ${activityDelete.dataValues.name} no se encontro`);
-    return message;
+    
+      let listActivities = await Activity.findAll({
+      include: [
+        {
+          model: Country,
+          attributes: ["name"],
+          through: { attributes: [] },
+        },
+      ],
+    });
+    return listActivities;
   } catch (error) {
     return error;
   }
