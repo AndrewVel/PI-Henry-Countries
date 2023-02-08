@@ -10,7 +10,6 @@ import { Provider } from "react-redux";
 import store from "./redux/store";
 import axios from "axios";
 
-axios.defaults.baseURL = "https://pi-countries-andrewvel.up.railway.app";
 
 ReactDOM.render(
   <Provider store={store}>

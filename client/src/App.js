@@ -8,6 +8,10 @@ import Activity from "./components/Activity/Activity";
 import CreateActivity from "./components/Activity/CRUD/Create/CreateActivity";
 import UpdateActivity from "./components/Activity/CRUD/Update/UpdateActivity";
 import Me from "./components/About/About";
+
+import axios from "axios";
+axios.defaults.baseURL = "https://pi-countries-andrewvel.up.railway.app";
+
 function App() {
   return (
     <div className="App">
