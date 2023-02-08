@@ -16,30 +16,31 @@ export const GET_ACTIVITY_BY_ID = " GET_ACTIVITY_BY_ID";
 //Traer a todos los paises
 
 export const getCountries = () => {
-  return function (dispatch) {
-    fetch("https://pi-countries-andrewvel.up.railway.app/countries/")
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({
-          type: GET_COUNTRIES,
-          payload: data,
-        });
-      });
+  return async function (dispatch) {
+    const response = await axios.get(`/countries/`);
+    return dispatch({
+      type: GET_COUNTRIES,
+      payload: response.data,
+    });
+  };
+};
+
+export const getActivities = () => {
+  return async function (dispatch) {
+    const response = await axios.get("/activities");
+    return dispatch({ type: GET_ACTIVITIES, payload: response.data });
   };
 };
 
 //Traer pais por nombre
 export const getCountriesByName = (name) => {
-  return function (dispatch) {
-    fetch(
-      `https://pi-countries-andrewvel.up.railway.app/countries?name=${name}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        !data.error
-          ? dispatch({ type: GET_COUNTRIES_BY_NAME, payload: data })
-          : alert(data.error);
-      });
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`/countries?name=${name}`);
+      dispatch({ type: GET_COUNTRIES_BY_NAME, payload: response.data });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 };
 
@@ -70,69 +71,69 @@ export const orderPopulation = (order) => {
   };
 };
 
-export const getActivities = () => {
-  return function (dispatch) {
-    fetch("https://pi-countries-andrewvel.up.railway.app/activities")
-      .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_ACTIVITIES, payload: data }));
-  };
-};
-
 export const getCountryById = (id) => {
-  return function (dispatch) {
-    fetch(`https://pi-countries-andrewvel.up.railway.app/countries/${id}`)
-      .then((response) => response.json())
-      .then((data) => dispatch({ type: GET_COUNTRIES_BY_ID, payload: data }));
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`/countries/${id}`);
+      dispatch({ type: GET_COUNTRIES_BY_ID, payload: response.data });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 };
 
 export const createActivity = (activity) => {
   return async function (dispatch) {
-    const response = await axios.post(
-      "https://pi-countries-andrewvel.up.railway.app/activities",
-      activity
-    );
-    alert(response.data.message);
-    return dispatch({
-      type: CREATE_ACTIVITY,
-      payload: response,
-    });
+    try {
+      const response = await axios.post("/activities", activity);
+      alert(response.data.message);
+      return dispatch({
+        type: CREATE_ACTIVITY,
+        payload: response,
+      });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 };
 
 export const deleteActivity = (id) => {
   return async function (dispatch) {
-    const response = await axios.delete(
-      `https://pi-countries-andrewvel.up.railway.app/activities/${id}`
-    );
-    console.log(response.data);
-    return dispatch({
-      type: DELETE_ACTIVITY,
-      payload: response.data,
-    });
+    try {
+      const response = await axios.delete(`/activities/${id}`);
+      console.log(response.data);
+      return dispatch({
+        type: DELETE_ACTIVITY,
+        payload: response.data,
+      });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 };
 
 export const updateActivity = (activity) => {
   return async function (dispatch) {
-    const response = await axios.put(
-      `https://pi-countries-andrewvel.up.railway.app/activities/${activity.id}`,
-      activity
-    );
-    console.log(response.data);
-    alert(response.data);
-    return dispatch({
-      type: UPDATE_ACTIVITY,
-    });
+    try {
+      const response = await axios.put(`/activities/${activity.id}`, activity);
+      console.log(response.data);
+      alert(response.data);
+      return dispatch({
+        type: UPDATE_ACTIVITY,
+      });
+    } catch (error) {
+      alert("sin cambios");
+    }
   };
 };
 
 export const getActivityById = (id) => {
-  return function (dispatch) {
-    fetch(`https://pi-countries-andrewvel.up.railway.app/activities/${id}`)
-      .then((response) => response.json())
-      .then((data) => {
-        dispatch({ type: GET_ACTIVITY_BY_ID, payload: data });
-      });
+  return async function (dispatch) {
+    try {
+      const response = await axios.get(`/activities/${id}`);
+      dispatch({ type: GET_ACTIVITY_BY_ID, payload: response.data });
+    } catch (error) {
+      alert(error.message);
+    }
   };
 };

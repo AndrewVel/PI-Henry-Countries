@@ -29,32 +29,14 @@ const UpdateActivity = () => {
   });
 
   useEffect(() => {
-    if (!activitiUpdate.length) {
+    if (Object.entries(activitiUpdate).length === 0) {
       dispatch(getActivityById(id));
     }
     setError(validation(activity));
-    if (!countries2.length) {
+    if (Object.entries(countries2).length === 0) {
       dispatch(getCountries());
     }
-    if (activity.id === undefined) {
-      setActivity({
-        id: activitiUpdate.id,
-        name: activitiUpdate.name,
-        difficulty: activitiUpdate.difficulty,
-        duration: activitiUpdate.duration,
-        season: activitiUpdate.season,
-        countries: [],
-      });
-      console.log("activity set", activity);
-    }
-  }, [
-    activitiUpdate.length,
-    activity,
-    countries2.length,
-    dispatch,
-    id,
-    activitiUpdate,
-  ]);
+  }, [activitiUpdate, activity, countries2, dispatch, id]);
 
   const handleChange = (event) => {
     const property = event.target.name;
@@ -99,8 +81,7 @@ const UpdateActivity = () => {
         season: activitiUpdate.season,
         countries: [],
       });
-    }
-    if (
+    } else if (
       !activity.difficulty ||
       !activity.duration ||
       !activity.season ||

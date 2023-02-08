@@ -15,7 +15,7 @@ const Activity = () => {
   return (
     <div>
       <div>
-        <Link to="/home" className="backHome">
+        <Link to="/home" className={s.backHomeCrud}>
           <span>BACK HOME</span>
         </Link>
       </div>

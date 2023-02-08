@@ -8,7 +8,7 @@ const Bar = ({ activities, setCurrentPage }) => {
   return (
     <div>
       <div className="normalBar">
-        <span class="btn-select"></span>
+        <span className="btn-select"></span>
         <div className="containerSearchBarx">
           <SearchBar setCurrentPage={setCurrentPage} />
         </div>
