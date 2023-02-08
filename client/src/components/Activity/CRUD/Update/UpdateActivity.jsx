@@ -36,7 +36,25 @@ const UpdateActivity = () => {
     if (!countries2.length) {
       dispatch(getCountries());
     }
-  }, [activitiUpdate.length, activity, countries2.length, dispatch, id]);
+    if (activity.id === undefined) {
+      setActivity({
+        id: activitiUpdate.id,
+        name: activitiUpdate.name,
+        difficulty: activitiUpdate.difficulty,
+        duration: activitiUpdate.duration,
+        season: activitiUpdate.season,
+        countries: [],
+      });
+      console.log("activity set", activity);
+    }
+  }, [
+    activitiUpdate.length,
+    activity,
+    countries2.length,
+    dispatch,
+    id,
+    activitiUpdate,
+  ]);
 
   const handleChange = (event) => {
     const property = event.target.name;
@@ -72,6 +90,16 @@ const UpdateActivity = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (activity.id === undefined) {
+      setActivity({
+        id: activitiUpdate.id,
+        name: activitiUpdate.name,
+        difficulty: activitiUpdate.difficulty,
+        duration: activitiUpdate.duration,
+        season: activitiUpdate.season,
+        countries: [],
+      });
+    }
     if (
       !activity.difficulty ||
       !activity.duration ||

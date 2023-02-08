@@ -17,7 +17,7 @@ export const GET_ACTIVITY_BY_ID = " GET_ACTIVITY_BY_ID";
 
 export const getCountries = () => {
   return function (dispatch) {
-    fetch("http://localhost:3001/countries/")
+    fetch("https://pi-countries-andrewvel.up.railway.app/countries/")
       .then((response) => response.json())
       .then((data) => {
         dispatch({
@@ -31,7 +31,9 @@ export const getCountries = () => {
 //Traer pais por nombre
 export const getCountriesByName = (name) => {
   return function (dispatch) {
-    fetch(`http://localhost:3001/countries?name=${name}`)
+    fetch(
+      `https://pi-countries-andrewvel.up.railway.app/countries?name=${name}`
+    )
       .then((response) => response.json())
       .then((data) => {
         !data.error
@@ -70,7 +72,7 @@ export const orderPopulation = (order) => {
 
 export const getActivities = () => {
   return function (dispatch) {
-    fetch("http://localhost:3001/activities")
+    fetch("https://pi-countries-andrewvel.up.railway.app/activities")
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_ACTIVITIES, payload: data }));
   };
@@ -78,7 +80,7 @@ export const getActivities = () => {
 
 export const getCountryById = (id) => {
   return function (dispatch) {
-    fetch(`http://localhost:3001/countries/${id}`)
+    fetch(`https://pi-countries-andrewvel.up.railway.app/countries/${id}`)
       .then((response) => response.json())
       .then((data) => dispatch({ type: GET_COUNTRIES_BY_ID, payload: data }));
   };
@@ -87,7 +89,7 @@ export const getCountryById = (id) => {
 export const createActivity = (activity) => {
   return async function (dispatch) {
     const response = await axios.post(
-      "http://localhost:3001/activities",
+      "https://pi-countries-andrewvel.up.railway.app/activities",
       activity
     );
     alert(response.data.message);
@@ -101,7 +103,7 @@ export const createActivity = (activity) => {
 export const deleteActivity = (id) => {
   return async function (dispatch) {
     const response = await axios.delete(
-      `http://localhost:3001/activities/${id}`
+      `https://pi-countries-andrewvel.up.railway.app/activities/${id}`
     );
     console.log(response.data);
     return dispatch({
@@ -114,7 +116,7 @@ export const deleteActivity = (id) => {
 export const updateActivity = (activity) => {
   return async function (dispatch) {
     const response = await axios.put(
-      `http://localhost:3001/activities/${activity.id}`,
+      `https://pi-countries-andrewvel.up.railway.app/activities/${activity.id}`,
       activity
     );
     console.log(response.data);
@@ -127,7 +129,7 @@ export const updateActivity = (activity) => {
 
 export const getActivityById = (id) => {
   return function (dispatch) {
-    fetch(`http://localhost:3001/activities/${id}`)
+    fetch(`https://pi-countries-andrewvel.up.railway.app/activities/${id}`)
       .then((response) => response.json())
       .then((data) => {
         dispatch({ type: GET_ACTIVITY_BY_ID, payload: data });
