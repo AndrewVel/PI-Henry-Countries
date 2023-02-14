@@ -41,7 +41,7 @@ const Detail = () => {
             <p>{country.capital}</p>
             <p> {country.subregion ? country.subregion : "Sin Datos"}</p>
             <p> {country.area / 1000} km2</p>
-            <p>{country.population} </p>
+            <p>{parseInt(country.population).toLocaleString()}</p>
           </div>
         </div>
       </div>

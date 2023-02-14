@@ -38,12 +38,25 @@
 }
 
 body {
-  background: #0f0c29; /* si no soporta o falla el nevegador */
-  /* Chrome y Safari */
-  background: linear-gradient(
-    to right,
-    #080050,
-    #082c6d,
-    #080050
-  ); /*los demas*/
+  background-size: 300% 300%;
+  background-image: linear-gradient(
+    -45deg,
+    rgb(0, 225, 255) 0%,
+    rgb(36, 72, 250) 25%,
+    rgb(0, 17, 255) 51%,
+    rgb(13, 0, 83) 100%
+  );
+  animation: AnimateBG 20s ease infinite;
+}
+
+@keyframes AnimateBG {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }

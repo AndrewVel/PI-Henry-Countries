@@ -2,10 +2,11 @@ import React, { useState, useEffect } from "react";
 import { listDificulty, listSeason } from "./OptionList";
 import { useDispatch, useSelector } from "react-redux";
 import { getCountries, createActivity } from "../../../../redux/actions";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { validation } from "./Validation";
 import s from "./Create.Module.css";
 const CreateActivity = () => {
+  const history = useHistory();
   const dispatch = useDispatch();
   const countries = useSelector((state) => state.countries);
   //--------------------------------------Control y datos de froms
@@ -20,7 +21,9 @@ const CreateActivity = () => {
 
   useEffect(() => {
     setError(validation(activity));
-    if (!countries.length) dispatch(getCountries());
+    if (countries && Object.entries(countries).length !== 250) {
+      dispatch(getCountries());
+    }
   }, [dispatch, activity, countries]);
 
   const handleChange = (event) => {
@@ -66,6 +69,7 @@ const CreateActivity = () => {
       return alert("😵 Complete the form correctly before submitting it");
     }
     dispatch(createActivity(activity));
+
     setActivity({
       name: "",
       difficulty: "",
@@ -73,6 +77,7 @@ const CreateActivity = () => {
       season: "",
       countries: [],
     });
+    history.push("/activity");
   };
 
   function handleDelete(event) {
@@ -116,6 +121,7 @@ const CreateActivity = () => {
               <div className={s.containerDataSelect}>
                 <p className={s.pTitle}>Difficulty: </p>
                 <br></br>
+
                 <select
                   className={s.inputData}
                   id="difficulty"
@@ -169,7 +175,9 @@ const CreateActivity = () => {
                   value={activity.season}
                 >
                   {listSeason.map((op) => (
-                    <option value={op}>{op}</option>
+                    <option value={op} key={op}>
+                      {op}
+                    </option>
                   ))}
                 </select>
                 {error.season ? (
@@ -191,7 +199,9 @@ const CreateActivity = () => {
                 >
                   <option>Select countries..</option>
                   {countries.map((contry) => (
-                    <option value={contry.id}>{contry.name}</option>
+                    <option value={contry.id} key={contry.id}>
+                      {contry.name}
+                    </option>
                   ))}
                 </select>
                 {error.countries ? (

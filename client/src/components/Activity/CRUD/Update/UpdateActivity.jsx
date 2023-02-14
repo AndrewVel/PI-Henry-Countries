@@ -1,87 +1,58 @@
 import React, { useState, useEffect } from "react";
 import { listDificulty, listSeason } from "./OptionList";
 import { useDispatch, useSelector } from "react-redux";
+import { Link, useParams, useHistory } from "react-router-dom";
+import { validation } from "./Validation";
+import s from "./Update.Module.css";
+//---------------------------------------------------------------------------------
 import {
   getCountries,
   getActivityById,
   updateActivity,
 } from "../../../../redux/actions";
-import { Link, useParams, useHistory } from "react-router-dom";
-import { validation } from "./Validation";
-import s from "./Update.Module.css";
+import { handleDelete, handleSelect, handleChange } from "./funcion";
+//---------------------------------------------------------------------------------
 
 const UpdateActivity = () => {
-  const history = useHistory();
   const { id } = useParams();
+  const history = useHistory();
   const dispatch = useDispatch();
   const countries2 = useSelector((state) => state.countries);
-  const activitiUpdate = useSelector((state) => state.activityUpdate);
-  //--------------------------------------Control y datos de froms
-
   const [error, setError] = useState({});
-  const [activity, setActivity] = useState({
-    id: activitiUpdate.id,
-    name: activitiUpdate.name,
-    difficulty: activitiUpdate.difficulty,
-    duration: activitiUpdate.duration,
-    season: activitiUpdate.season,
-    countries: [],
-  });
+  const [activity, setActivity] = useState({});
+  const activitiUpdate = useSelector((state) => state.activityUpdate);
 
   useEffect(() => {
-    if (Object.entries(activitiUpdate).length === 0) {
-      dispatch(getActivityById(id));
-    }
+    dispatch(getActivityById(id));
+  }, [dispatch, id]);
+
+  useEffect(() => {
     setError(validation(activity));
-    if (Object.entries(countries2).length === 0) {
+    if (countries2 && Object.entries(countries2).length !== 250) {
       dispatch(getCountries());
     }
-  }, [activitiUpdate, activity, countries2, dispatch, id]);
+  }, [countries2, activity, dispatch]);
 
-  const handleChange = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
-    const x = activitiUpdate.countries.map((xxy) => xxy.id);
-    setActivity({
-      ...activity,
-      [property]: value,
-      countries: x,
-    });
-    document.activityFrom.difficulty.blur();
-  };
-
-  const handleSelect = (event) => {
-    const property = event.target.name;
-    const value = event.target.value;
-    if (value !== "Select countries..") {
-      setActivity((activity) => {
-        if (property === "countries") {
-          return {
-            ...activity,
-            countries: [...activity.countries, value],
-          };
-        } else {
-          return {
-            ...activity,
-            [property]: value,
-          };
-        }
-      });
-    }
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (activity.id === undefined) {
+  useEffect(() => {
+    if (
+      Object.entries(activitiUpdate).length !== 0 &&
+      Object.entries(countries2).length !== 0
+    ) {
       setActivity({
         id: activitiUpdate.id,
         name: activitiUpdate.name,
         difficulty: activitiUpdate.difficulty,
         duration: activitiUpdate.duration,
         season: activitiUpdate.season,
-        countries: [],
+        countries: activitiUpdate.countries.map((xxy) => xxy.id),
       });
-    } else if (
+    }
+  }, [activitiUpdate, countries2]);
+
+  function handleSubmit(event) {
+    event.preventDefault();
+
+    if (
       !activity.difficulty ||
       !activity.duration ||
       !activity.season ||
@@ -89,16 +60,9 @@ const UpdateActivity = () => {
     ) {
       return alert("😵 Complete the form correctly before submitting it");
     }
-    console.log(activity);
+
     dispatch(updateActivity(activity));
     history.push("/activity");
-  };
-
-  function handleDelete(event) {
-    setActivity({
-      ...activity,
-      countries: activity.countries.filter((contry) => contry !== event),
-    });
   }
 
   return (
@@ -111,7 +75,12 @@ const UpdateActivity = () => {
       </div>
       <div className={s.xxx}>
         <div className={s.containerFrom}>
-          <form onSubmit={(e) => handleSubmit(e)} name="activityFrom">
+          <form
+            onSubmit={(e) =>
+              handleSubmit(e, activity, dispatch, updateActivity)
+            }
+            name="activityFrom"
+          >
             <div>
               {/* //-----------Name */}
               <div className={s.containerDataSelect}>
@@ -126,8 +95,10 @@ const UpdateActivity = () => {
                   type="text"
                   placeholder="Name..."
                   name="name"
-                  value={activitiUpdate.name}
-                  onChange={(e) => handleChange(e)}
+                  value={activity.name}
+                  onChange={(e) =>
+                    handleChange(e, activitiUpdate, setActivity, activity)
+                  }
                 />
                 {error.name ? (
                   <p className={s.errors}>{error.name}</p>
@@ -143,12 +114,11 @@ const UpdateActivity = () => {
                   className={s.inputData}
                   id="difficulty"
                   name="difficulty"
-                  onChange={(e) => handleChange(e)}
-                  value={
-                    !activity.difficulty
-                      ? activitiUpdate.difficulty
-                      : activity.difficulty
+                  placeholder={activitiUpdate.difficulty}
+                  onChange={(e) =>
+                    handleChange(e, activitiUpdate, setActivity, activity)
                   }
+                  value={activity.difficulty}
                 >
                   {listDificulty.map((op) => (
                     <option key={op} value={op}>
@@ -162,7 +132,6 @@ const UpdateActivity = () => {
                   <p className={s.sinError}>-</p>
                 )}
               </div>
-
               {/* --------------------------duration */}
               <div className={s.containerDataSelect}>
                 <p className={s.pTitle}>Duration: </p>
@@ -171,14 +140,12 @@ const UpdateActivity = () => {
                   <input
                     className={s.inputDataDuration}
                     type="number"
-                    placeholder="Duration..."
+                    placeholder={activitiUpdate.duration}
                     name="duration"
-                    value={
-                      !activity.duration
-                        ? activitiUpdate.duration
-                        : activity.duration
+                    value={activity.duration}
+                    onChange={(e) =>
+                      handleChange(e, activitiUpdate, setActivity, activity)
                     }
-                    onChange={(e) => handleChange(e)}
                   />
                   <label>hours</label>
                 </div>
@@ -196,10 +163,11 @@ const UpdateActivity = () => {
                   className={s.inputData}
                   id="season"
                   name="season"
-                  onChange={(e) => handleChange(e)}
-                  value={
-                    !activity.season ? activitiUpdate.season : activity.season
+                  placeholder={activitiUpdate.season}
+                  onChange={(e) =>
+                    handleChange(e, activitiUpdate, setActivity, activity)
                   }
+                  value={activity.season}
                 >
                   {listSeason.map((op) => (
                     <option value={op} key={op}>
@@ -213,34 +181,29 @@ const UpdateActivity = () => {
                   <p className={s.sinError}>-</p>
                 )}
               </div>
-              {/* /////////////////////////////////////////// */}
-              {activity.countries.length ? (
-                <div className={s.containerDataSelect}>
-                  <p className={s.pTitle}>Country selections</p>
-                  <br></br>
-                  <select
-                    className={s.inputData}
-                    name="countries"
-                    id="countries"
-                    onChange={(e) => handleSelect(e)}
-                  >
-                    <option>Select countries..</option>
-                    {countries2.map((contry) => (
-                      <option value={contry.id} key={contry.id}>
-                        {contry.name}
-                      </option>
-                    ))}
-                  </select>
-                  {error.countries ? (
-                    <p className={s.errors}>{error.countries}</p>
-                  ) : (
-                    <p className={s.sinError}>-</p>
-                  )}
-                </div>
-              ) : (
-                <></>
-              )}
-
+              <div className={s.containerDataSelect}>
+                <p className={s.pTitle}>Country selections</p>
+                <br></br>
+                <select
+                  className={s.inputData}
+                  name="countries"
+                  id="countries"
+                  onChange={(e) => handleSelect(e, setActivity)}
+                >
+                  <option>Select countries..</option>
+                  {countries2.map((contry) => (
+                    <option value={contry.id} key={contry.id}>
+                      {contry.name}
+                    </option>
+                  ))}
+                </select>
+                {error.countries ? (
+                  <p className={s.errors}>{error.countries}</p>
+                ) : (
+                  <p className={s.sinError}>-</p>
+                )}
+              </div>
+              {/* ////Boton--------------------------------------      */}
               <button
                 className={s.buttonSubmit}
                 type="submit"
@@ -253,7 +216,7 @@ const UpdateActivity = () => {
           </form>
         </div>
         {/* //-----------------------countries */}
-        {activity.countries.length ? (
+        {activity.hasOwnProperty("countries") ? (
           <div className={s.ContainerCountrySelectAll}>
             <h1 className={s.titleListContries}>List of Selected Countries</h1>
 
@@ -269,7 +232,10 @@ const UpdateActivity = () => {
                   <p key={e} className={s.nameContrySelect}>
                     {e}
                   </p>
-                  <button onClick={() => handleDelete(e)} className={s.butonX}>
+                  <button
+                    onClick={() => handleDelete(e, setActivity, activity)}
+                    className={s.butonX}
+                  >
                     X
                   </button>
                 </div>

@@ -14,3 +14,11 @@
   color: black;
   box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4;
 }
+
+@media only screen and (max-width: 600px) {
+  .buttonNumber {
+    font-size: 12px;
+    padding: 5px 10px;
+    margin-bottom: 5px;
+  }
+}

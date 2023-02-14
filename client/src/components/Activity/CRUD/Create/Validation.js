@@ -4,7 +4,7 @@ export const validation = (dato) => {
 
   let error = {};
 
-  if (!dato.name || !dato.duration || !dato.countries.length) {
+  if (!dato.name || !dato.duration || dato.countries.length) {
     return error;
   } else {
     if (!dato.name) {
@@ -32,7 +32,7 @@ export const validation = (dato) => {
     if (!dato.season) {
       error.season = "❌The season field is required";
     }
-    if (!dato.countries.length)
+    if (dato.countries.length === 0)
       error.countries = "❌It is required to enter at least 1 country";
 
     if (hasDuplicate(dato.countries))

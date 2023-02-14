@@ -1,6 +1,6 @@
 .barra {
-  background: url(https://cdn-icons-png.flaticon.com/512/2851/2851067.png)
-    no-repeat 5px 5px;
+  background: url(https://cdn-icons-png.flaticon.com/512/3542/3542704.png)
+    no-repeat 4px 3px;
   background-size: 30px;
   width: 40px;
   border: transparent;
@@ -14,8 +14,7 @@
 
 .barra:hover {
   width: 300px;
-  background: url(https://cdn-icons-png.flaticon.com/512/2851/2851067.png)
-    no-repeat 3px 5px;
+
   background-size: 30px;
   padding: 10px 10px 10px 50px;
   background-color: white;
@@ -25,8 +24,7 @@
 .barra:focus {
   width: 300px;
   color: darkblue;
-  background: url(https://cdn-icons-png.flaticon.com/512/2851/2851067.png)
-    no-repeat 3px 5px;
+
   background-size: 30px;
   padding: 10px 10px 10px 50px;
   background-color: white;
