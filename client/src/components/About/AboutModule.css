@@ -37,7 +37,7 @@
 }
 
 .about-right {
-  background: #12192c;
+  background: #12192ca6;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -94,6 +94,32 @@
   color: #fff;
 }
 
+.buttons {
+  position: absolute;
+  top: 95%;
+  display: flex;
+  width: 220px;
+  justify-content: space-around;
+}
+
+.buttons a {
+  text-decoration: none;
+  font-size: 28px;
+  width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  background: #314652;
+  color: #f1f1f1;
+  border-radius: 50%;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+  transition: all 0.4s ease-in-out;
+}
+
+.buttons a:hover {
+  transform: scale(1.2);
+}
+
 @media screen and (min-width: 992px) {
   .about-wrapper {
     display: grid;
@@ -107,31 +133,4 @@
     position: absolute;
     width: 80%;
   }
-}
-
-.icons {
-  background: #12192c;
-  display: flex;
-  justify-content: center;
-  padding: 0.8rem 0;
-  border-radius: 25px;
-}
-.icons li {
-  list-style-type: none;
-  background: #03e9f4;
-  color: #fff;
-  width: 40px;
-  height: 40px;
-  margin: 0 0.5rem;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: all 0.5s ease-in-out;
-}
-.icons li:hover {
-  background: #edffec;
-  color: #000;
 }

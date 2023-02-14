@@ -19,6 +19,7 @@ const Me = () => {
 
           <h1>Andres Velata</h1>
           <h3>Engineer of TIC's</h3>
+          <section class="buttons"></section>
         </div>
       </div>
       <div class="about-right">

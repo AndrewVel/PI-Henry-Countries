@@ -8,13 +8,14 @@ import Activity from "./components/Activity/Activity";
 import CreateActivity from "./components/Activity/CRUD/Create/CreateActivity";
 import UpdateActivity from "./components/Activity/CRUD/Update/UpdateActivity";
 import Me from "./components/About/About";
-
+import Back from "./components/Back/Back";
 import axios from "axios";
 axios.defaults.baseURL = "https://pi-countries-andrewvel.up.railway.app";
 
 function App() {
   return (
     <div className="App">
+      <Back />
       <Route exact path="/" component={InitialPage} />
       <Route path="/home" component={Home} />
       <Route path="/detail/:id" component={Detail} />
