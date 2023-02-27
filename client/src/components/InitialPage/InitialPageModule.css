@@ -26,11 +26,18 @@
 }
 .andrew {
   position: absolute;
-  width: 100px;
+  width: 80px;
   top: 5%;
   left: 5%;
-  background-color: cyan;
+  background-color: white;
   border-radius: 15px;
+  transition: all 0.5s;
+}
+.andrew:hover {
+  background-color: cyan;
+  scale: 1.1;
+  box-shadow: 0 0 15px #03e9f4, 0 0 15px #03e9f4, 0 0 15px #03e9f4,
+    0 0 15px #03e9f4, 0 0 15px #03e9f4, 0 0 15px #03e9f4;
 }
 .start {
   padding: 20px 30px; /*forma de boton */

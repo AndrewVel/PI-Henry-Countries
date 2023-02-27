@@ -24,11 +24,15 @@ const initialPage = () => {
             trip!
           </p>
         </div>
-      <Link to="/home" className="start">
-        <span>START</span>
-      </Link>
+        <Link to="/home" className="start">
+          <span>START</span>
+        </Link>
       </div>
-      <img src={andrew} alt="Andrew" className="andrew"></img>
+      <div class="andrew">
+        <a href="https://www.linkedin.com/in/andres-velata/">
+          <img src={andrew} alt="Andrew" className="andrew"></img>
+        </a>
+      </div>
     </div>
   );
 };
