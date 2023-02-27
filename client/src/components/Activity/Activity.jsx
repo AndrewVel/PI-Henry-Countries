@@ -24,7 +24,8 @@ const Activity = () => {
           <span>CREATE ACTIVITY</span>
         </Link>
       </div>
-      <h1 className={s.title}>CRUD ACTIVITIES</h1>
+      <h1 className={s.title}>ACTIVITIES</h1>
+
       <div>
         <ListActivity activities={activities} />
       </div>

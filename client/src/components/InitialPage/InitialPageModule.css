@@ -1,5 +1,37 @@
 @import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap");
 
+.glassLanding {
+  width: 500px;
+  height: auto;
+  padding: 2rem;
+  border-radius: 1rem;
+  font-size: 1rem;
+  color: white;
+  background: rgba(1, 0, 3, 0.25);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(55px);
+  border: 1.5px solid rgba(255, 255, 255, 0.3);
+}
+.textoTodoLanding {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 90%;
+}
+.textolandig {
+  color: aliceblue;
+}
+.titlelandigpage {
+  color: aliceblue;
+}
+.andrew {
+  position: absolute;
+  width: 100px;
+  top: 5%;
+  left: 5%;
+  background-color: cyan;
+  border-radius: 15px;
+}
 .start {
   padding: 20px 30px; /*forma de boton */
   color: #03e9f4;
@@ -10,6 +42,7 @@
   background-color: black;
   font-family: "Raleway", sans-serif;
   font-weight: 900;
+  height: fit-content;
 }
 
 .start:hover {
@@ -22,6 +55,47 @@
 a:link {
   text-decoration: none;
 }
+
+/* @media screen and (max-width: 750px) {
+  .textoTodoLanding {
+    top: 15%;
+    position: absolute;
+    background-color: #050801;
+    max-width: 500px;
+  }
+  .textolandig {
+    color: aliceblue;
+  }
+  .titlelandigpage {
+    color: aliceblue;
+  }
+  .andrew {
+    position: absolute;
+    width: 100px;
+    top: 5%;
+    left: 5%;
+    background-color: cyan;
+    border-radius: 15px;
+  }
+  .start {
+    padding: 20px 30px; 
+    color: #03e9f4;
+    transition: 0.5s;
+    letter-spacing: 3px; 
+    box-shadow: 0 0 40px #03e9f4;
+    border-radius: 50px;
+    background-color: black;
+    font-family: "Raleway", sans-serif;
+    font-weight: 900;
+  }
+
+  .start:hover {
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4, 0 0 25px #03e9f4, 0 0 50px #03e9f4,
+      0 0 700px #03e9f4;
+  }
+} */
 
 .contentsStart {
   display: flex;

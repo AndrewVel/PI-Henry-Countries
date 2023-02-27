@@ -24,10 +24,10 @@ const Home = () => {
   const activities = useSelector((state) => state.activities);
 
   const [currentPage, setCurrentPage] = useState(1);
-
   const [perPage, setPerPage] = useState(9);
+
   const pagination = (pageNumber) => {
-    pageNumber === 1 ? setPerPage(9) : setPerPage(10);
+    setPerPage(pageNumber === 1 ? 9 : 10);
     setCurrentPage(pageNumber);
   };
 
@@ -55,6 +55,8 @@ const Home = () => {
             countries={countries.length}
             pagination={pagination}
             perPage={perPage}
+            currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
           <Cards countries={currentCountries} />
         </div>
@@ -62,5 +64,6 @@ const Home = () => {
     </div>
   );
 };
+
 
 export default Home;
