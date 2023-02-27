@@ -45,7 +45,7 @@ const CreateActivity = () => {
         if (property === "countries") {
           return {
             ...estado,
-            countries: [...estado.countries, value],
+            countries: Array.from(new Set([...estado.countries, value])),
           };
         } else {
           return {
@@ -228,7 +228,7 @@ const CreateActivity = () => {
 
             <div className={s.ContainerCountrySelect}>
               {activity.countries.map((e) => (
-                <div className={s.contrySelect}>
+                <div className={s.contrySelect} key={e}>
                   <img
                     src={countries
                       .filter((ban) => ban.id === e)

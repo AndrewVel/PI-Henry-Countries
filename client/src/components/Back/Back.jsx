@@ -2,7 +2,7 @@ import "./BackModule.css";
 
 const Back = () => {
   return (
-    <div class="background">
+    <div className="background">
       <span></span>
       <span></span>
       <span></span>

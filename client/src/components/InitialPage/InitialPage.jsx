@@ -28,7 +28,7 @@ const initialPage = () => {
           <span>START</span>
         </Link>
       </div>
-      <div class="andrew">
+      <div className="andrew">
         <a href="https://www.linkedin.com/in/andres-velata/">
           <img src={andrew} alt="Andrew" className="andrew"></img>
         </a>
