@@ -49,7 +49,7 @@ const Pagination = ({ countries, pagination, perPage, currentPage }) => {
   return (
     <div className="pagination">
       <button
-        className="pagination-button"
+        className={currentPage !== 1 ? "pagination-button" : "disable"}
         onClick={() => handleClick(currentPage - 1)}
         disabled={currentPage === 1}
       >
@@ -70,7 +70,7 @@ const Pagination = ({ countries, pagination, perPage, currentPage }) => {
       ))}
 
       <button
-        className="pagination-button"
+        className={currentPage !== pagesCount ? "pagination-button" : "disable"}
         onClick={() => handleClick(currentPage + 1)}
         disabled={currentPage === pagesCount}
       >
