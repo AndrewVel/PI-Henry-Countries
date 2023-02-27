@@ -99,22 +99,26 @@
 
 @media screen and (max-width: 750px) {
   .TitleName {
-    width: 180px;
+    width: 150px;
   }
   .listAName {
-    width: 180px;
+    width: 150px;
   }
 
   .TitleName,
   .Title,
   .listAName,
   .listA {
-    font-size: small;
+    font-size: 9pt;
   }
   .Title,
   .listA {
     min-width: none;
-    width: 70px;
-    min-width: 70px;
+    width: 50px;
+    min-width: 60px;
   }
+  /* .containerAll {
+    background-color: aqua;
+    margin-top: 50px;
+  } */
 }

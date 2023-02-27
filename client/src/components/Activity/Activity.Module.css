@@ -68,5 +68,8 @@
     font-size: large;
   }
 }
-
-
+@media screen and (max-width: 750px) {
+  .title {
+    margin-top: 70px;
+  }
+}
