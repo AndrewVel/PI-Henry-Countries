@@ -93,7 +93,7 @@ const CreateActivity = () => {
         <span>⫷</span>
       </Link>
       <div className={s.titleFroms}>
-        <h2>Create your Tourist Activity</h2>
+        <h2>Create Activity</h2>
       </div>
       <div className={s.xxx}>
         <div className={s.containerFrom}>
