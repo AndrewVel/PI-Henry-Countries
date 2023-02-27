@@ -97,12 +97,12 @@
   border: 1px solid rgb(255, 174, 174);
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 400px) {
   .TitleName {
-    width: 150px;
+    width: 120px;
   }
   .listAName {
-    width: 150px;
+    width: 120px;
   }
 
   .TitleName,
@@ -114,11 +114,28 @@
   .Title,
   .listA {
     min-width: none;
-    width: 50px;
+    width: 60px;
     min-width: 60px;
   }
-  /* .containerAll {
-    background-color: aqua;
-    margin-top: 50px;
-  } */
+}
+@media screen and (max-width: 750px) and (min-width: 401px) {
+  .TitleName {
+    width: 180px;
+  }
+  .listAName {
+    width: 180px;
+  }
+
+  .TitleName,
+  .Title,
+  .listAName,
+  .listA {
+    font-size: small;
+  }
+  .Title,
+  .listA {
+    min-width: none;
+    width: 70px;
+    min-width: 70px;
+  }
 }
