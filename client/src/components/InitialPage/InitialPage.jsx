@@ -9,14 +9,14 @@ const initialPage = () => {
       <div className="textoTodoLanding">
         <div className="glassLanding">
           <h1 className="titlelandigpage">Welcome to Individual Project</h1>
-          <p className="textolandig">
+          <p className="textolandig1">
             Welcome to my countries PI. Here you can explore the geographical
             diversity. You can start by searching for a particular country
             through our search engine, or browse the full list of countries.
             Each country has a detailed file with relevant information, such as
             its continent, capital, sub-region, area and population.
           </p>
-          <p className="textolandig">
+          <p className="textolandig2">
             Also, if you have an activity or experience that you have enjoyed on
             your trips and want to share with other users, you can add it to our
             system and enrich the travel experience of the community. We invite
