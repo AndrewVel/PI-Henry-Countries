@@ -11,7 +11,7 @@ const Me = () => {
           <div className="about-img">
             <a href="https://www.linkedin.com/in/andres-velata/">
               <img
-                src="https://media.licdn.com/dms/image/D4E35AQHEu-E9S5uN8w/profile-framedphoto-shrink_200_200/0/1678488174225?e=1679274000&v=beta&t=-MRKF1wLQT5p3sKdjORIupzkf2kHwwuAMhRdciCZzpU"
+                src="https://scontent.fltx1-1.fna.fbcdn.net/v/t1.6435-9/74387942_3170784979605012_3312521409967685632_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=174925&_nc_ohc=JbKXEkgThU8AX8opcK2&_nc_ht=scontent.fltx1-1.fna&oh=00_AfAcW7cdMbdIFtlU7MUl9FSh_W9VsaOx-5TDjCQn4Dc5tw&oe=643601AB"
                 alt="Andrew"
               />
             </a>
